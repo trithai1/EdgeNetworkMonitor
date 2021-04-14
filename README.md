@@ -28,3 +28,36 @@ Connect to the Raspberry Pi 3B and run the following commands in the terminal:
   - sudo python3 -m pip install pyshark==0.4.2.11
 
 Setup PSQL with database and tables:
+  - cd /etc/ssl/certs/
+  - sudo make-ssl-cert generate-default-snakeoil --force-overwrite
+  - sudo service postgresql start
+  - sudo -u postgres -i
+  - psql
+  - create user kali with password 'password' createdb superuser;
+  - create database network_stream owner kali;
+  - \q
+  - exit
+  - psql network_stream
+  - create table network_log_batch(
+      timestamp double precision unique not null,      
+      src text not null,      
+      srcport integer,      
+      dst text not null,      
+      dstport integer,      
+      protocol text,      
+      length integer      
+    );
+  - create table network_log_summary(
+      id serial primary key,
+      min_timestamp double precision not null,
+      max_timestamp double precision not null,
+      src text not null,
+      srcport integer,
+      dst text not null,
+      dstport integer,
+      protocol text,
+      min_length integer,
+      max_length integer,
+      avg_length numeric,
+      summ_size integer
+    );
