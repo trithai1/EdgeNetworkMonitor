@@ -39,28 +39,28 @@ Setup PSQL with database and tables:
   - exit
   - psql network_stream
   - create table network_log_batch(<br />
-      timestamp double precision unique not null,<br />
-      src text not null,<br />
-      srcport integer,<br />
-      dst text not null,<br />
-      dstport integer,<br />
-      protocol text,<br />
-      length integer<br />
-    );
+&emsp;timestamp double precision unique not null,<br />
+&emsp;src text not null,<br />
+&emsp;srcport integer,<br />
+&emsp;dst text not null,<br />
+&emsp;dstport integer,<br />
+&emsp;protocol text,<br />
+&emsp;length integer<br />
+);
   - create table network_log_summary(<br />
-      id serial primary key,<br />
-      min_timestamp double precision not null,<br />
-      max_timestamp double precision not null,<br />
-      src text not null,<br />
-      srcport integer,<br />
-      dst text not null,<br />
-      dstport integer,<br />
-      protocol text,<br />
-      min_length integer,<br />
-      max_length integer,<br />
-      avg_length numeric,<br />  
-      summ_size integer<br />
-    );
+&emsp;id serial primary key,<br />
+&emsp;min_timestamp double precision not null,<br />
+&emsp;max_timestamp double precision not null,<br />
+&emsp;src text not null,<br />
+&emsp;srcport integer,<br />
+&emsp;dst text not null,<br />
+&emsp;dstport integer,<br />
+&emsp;protocol text,<br />
+&emsp;min_length integer,<br />
+&emsp;max_length integer,<br />
+&emsp;avg_length numeric,<br />  
+&emsp;summ_size integer<br />
+);
   - create table network_log(<br />
 &emsp;timestamp double precision unique not null,<br />
 &emsp;source text,<br />
