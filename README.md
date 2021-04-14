@@ -100,25 +100,25 @@ In both the Gathering and Monitoring Device, edit the pg_hba.conf file to allow 
 # Running
 Gathering Device:
 
-Run monitor.py then run worker_server.py
+* Run monitor.py then run worker_server.py
 
-To access help on the parameters needed to run monitor.py and worker_server.py use:
-python3 monitor.py --help
-python3 worker_server.py --help
+* To access help on the parameters needed to run monitor.py and worker_server.py use:
+  - python3 monitor.py --help
+  - python3 worker_server.py --help
 
-Run Examples:
+* Run Examples:
 
-sudo python3 monitor.py -interface wlan0mon -table_timewindow 20 -summ_timewindow 3 -log_table network_log_batch -summ_table network_log_summary -user kali -password password -host localhost -database network_stream -displayrate 3 -displaysize 1
+  - sudo python3 monitor.py -interface wlan0mon -table_timewindow 20 -summ_timewindow 3 -log_table network_log_batch -summ_table network_log_summary -user kali -password password -host localhost -database network_stream -displayrate 3 -displaysize 1
 
-sudo python3 worker_server.py -master 123.123.1.12 -port 1234 -local_user kali -local_password password -local_host localhost -local_database network_stream -remote_user user -remote_password password -remote_host 123.123.1.12 -remote_database network_stream -summ_table network_log_summary
+  - sudo python3 worker_server.py -master 123.123.1.12 -port 1234 -local_user kali -local_password password -local_host localhost -local_database network_stream -remote_user user -remote_password password -remote_host 123.123.1.12 -remote_database network_stream -summ_table network_log_summary
 
 Monitoring Device:
 
-After running monitor.py and worker_server.py on each Raspberry Pi.
+* After running monitor.py and worker_server.py on each Raspberry Pi.
 Run master_client.py.
 
-To access help on the parameters needed to run master_client.py use;
-python3 master_client.py --help
+* To access help on the parameters needed to run master_client.py use:
+  - python3 master_client.py --help
 
-Run Example:
-py -3 master_client.py -hosts 123.123.1.12 -port 1234 -user user -password password -host localhost -database network_stream -summ_table network_log_summary
+* Run Example:
+  - py -3 master_client.py -hosts 123.123.1.12 -port 1234 -user user -password password -host localhost -database network_stream -summ_table network_log_summary
