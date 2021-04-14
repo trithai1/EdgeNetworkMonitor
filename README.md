@@ -6,9 +6,9 @@
 * Monitoring Device - Device that will be used to collect the gathered data and monitor it using queries. For example, I used my personal computer.
 
 # Setup
-For the setup, I will explain the setup I use for my Raspberry Pi 3B and personal computer (Windows 10 Home, 64-bit operating system).
+For the setup, I will explain the setup I use for my Gathering Device (Raspberry Pi 3B) and Monitoring Device (personal computer, Windows 10 Home, 64-bit operating system). The psql database and table names can vary depending on your preferences, just make sure the column names stay the same.
 
-Raspberry Pi 3B setup:
+Gathering Device (Raspberry Pi 3B) setup:
 
 Format the micro sd card to exFat.
 
@@ -68,3 +68,29 @@ Setup PSQL with database and tables:
 &emsp;protocol text,<br />
 &emsp;length integer<br />
 );
+
+In your Monitoring Device:
+
+  - Install postgresql-11
+
+  - Install python3
+    - Install asciimatics
+
+  - Setup PSQL with database and tables:
+    - create database network_stream
+    - create table network_log_summary(<br />
+&emsp;id serial primary key,<br />
+&emsp;min_timestamp double precision not null,<br />
+&emsp;max_timestamp double precision not null,<br />
+&emsp;src text not null,<br />
+&emsp;srcport integer,<br />
+&emsp;dst text not null,<br />
+&emsp;dstport integer,<br />
+&emsp;protocol text,<br />
+&emsp;min_length integer,<br />
+&emsp;max_length integer,<br />
+&emsp;avg_length numeric,<br />
+&emsp;summ_size integer<br />
+);
+
+In both the Gathering Device and Monitoring Device, edit the pg_hba.conf file to allow IPv4 local connections between each devices.
