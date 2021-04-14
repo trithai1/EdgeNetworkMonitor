@@ -1,7 +1,7 @@
 # EdgeNetworkMonitor
 # Required
 * Gathering Device - Device that will be used to sniff the network and gather data. For example, I used a Raspberry Pi 3B.
-** Test
+* * Test
 * Monitoring Device - Device that will be used to collect the gathered data and monitor it using queries. For example, I used my personal computer.
 
 # Setup
