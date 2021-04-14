@@ -58,7 +58,7 @@ Setup PSQL with database and tables:
 &emsp;protocol text,<br />
 &emsp;min_length integer,<br />
 &emsp;max_length integer,<br />
-&emsp;avg_length numeric,<br />  
+&emsp;avg_length numeric,<br />
 &emsp;summ_size integer<br />
 );
   - create table network_log(<br />
