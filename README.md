@@ -98,3 +98,8 @@ In your Monitoring Device:
 In both the Gathering and Monitoring Device, edit the pg_hba.conf file to allow "IPv4 local connections" between each devices.
 
 # Running
+Gathering Device:
+sudo python3 monitor.py -interface "interface" -table_timewindow "table timewindow in minutes" -summ_timewindow "batch timewindow in minutes" -log_table "log table name" -summ_table "summarized table name" -user "database user" -password "database password" -host "database host" -database "database name" -displayrate "display update rate in seconds" -displaysize "display size in seconds"
+  - Example: sudo python3 monitor.py -interface wlan0mon -table_timewindow 20 -summ_timewindow 3 -log_table network_log_batch -summ_table network_log_summary -user kali -password password -host localhost -database network_stream -displayrate 3 -displaysize 1
+
+Monitoring Device:
