@@ -24,8 +24,10 @@ Connect to the Raspberry Pi 3B and run the following commands in the terminal:
   - airmon-ng start wlan0
   - python3 -m pip install asciimatics==1.11.0
   - python3 -m pip install pyshark==0.4.2.11
+  - python3 -m pip install psycopg2
   - sudo python3 -m pip install asciimatics==1.11.0
   - sudo python3 -m pip install pyshark==0.4.2.11
+  - sudo python3 -m pip install psycopg2
 
 Setup PSQL with database and tables:
   - cd /etc/ssl/certs/
@@ -93,4 +95,6 @@ In your Monitoring Device:
 &emsp;summ_size integer<br />
 );
 
-In both the Gathering Device and Monitoring Device, edit the pg_hba.conf file to allow IPv4 local connections between each devices.
+In both the Gathering and Monitoring Device, edit the pg_hba.conf file to allow "IPv4 local connections" between each devices.
+
+# Running
