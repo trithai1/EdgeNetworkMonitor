@@ -93,4 +93,4 @@ In your Monitoring Device:
 &emsp;summ_size integer<br />
 );
 
-In both the Gathering Device and Monitoring Device, edit the pg_hba.conf file to allow IPv4 local connections between each devices.
+In both the Gathering Device and Monitoring Device, edit the pg_hba.conf file to allow "IPv4 local connections" between each devices.
