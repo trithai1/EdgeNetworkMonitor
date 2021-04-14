@@ -1,3 +1,5 @@
 # EdgeNetworkMonitor
-# Test
-test test
+# Required
+* Monitoring Device - test
+* Gathering Device - test
+# Setup
