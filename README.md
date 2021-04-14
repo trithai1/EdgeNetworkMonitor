@@ -38,26 +38,33 @@ Setup PSQL with database and tables:
   - \q
   - exit
   - psql network_stream
-  - create table network_log_batch(
-      timestamp double precision unique not null,      
-      src text not null,      
-      srcport integer,      
-      dst text not null,      
-      dstport integer,      
-      protocol text,      
-      length integer      
+  - create table network_log_batch(<br />
+      timestamp double precision unique not null,<br />
+      src text not null,<br />
+      srcport integer,<br />
+      dst text not null,<br />
+      dstport integer,<br />
+      protocol text,<br />
+      length integer<br />
     );
-  - create table network_log_summary(
-      id serial primary key,
-      min_timestamp double precision not null,
-      max_timestamp double precision not null,
-      src text not null,
-      srcport integer,
-      dst text not null,
-      dstport integer,
-      protocol text,
-      min_length integer,
-      max_length integer,
-      avg_length numeric,
-      summ_size integer
+  - create table network_log_summary(<br />
+      id serial primary key,<br />
+      min_timestamp double precision not null,<br />
+      max_timestamp double precision not null,<br />
+      src text not null,<br />
+      srcport integer,<br />
+      dst text not null,<br />
+      dstport integer,<br />
+      protocol text,<br />
+      min_length integer,<br />
+      max_length integer,<br />
+      avg_length numeric,<br />  
+      summ_size integer<br />
     );
+  - create table network_log(<br />
+&emsp;timestamp double precision unique not null,<br />
+&emsp;source text,<br />
+&emsp;destination text,<br />
+&emsp;protocol text,<br />
+&emsp;length integer<br />
+);
