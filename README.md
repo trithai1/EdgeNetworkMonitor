@@ -114,8 +114,7 @@ Gathering Device:
 
 Monitoring Device:
 
-* After running monitor.py and worker_server.py on each Raspberry Pi.
-Run master_client.py.
+* After running monitor.py and worker_server.py on each Raspberry Pi. Run master_client.py.
 
 * To access help on the parameters needed to run master_client.py use:
   - python3 master_client.py --help
