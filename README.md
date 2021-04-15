@@ -1,11 +1,11 @@
-# EdgeNetworkMonitor
-# Required
+# Edge Network Monitor
+## Required
 * Gathering Device - Device that will be used to sniff the network and gather data. For example, I used a Raspberry Pi 3B.
   * Micro SD Card if you're using the Raspberry Pi 3B.
   * Kali Linux Image - https://www.offensive-security.com/kali-linux-arm-images/ (Raspberry Pi 3B)
 * Monitoring Device - Device that will be used to collect the gathered data and monitor it using queries. For example, I used my personal computer.
 
-# Setup
+## Setup
 For the setup, I will explain the setup I use for my Gathering Device (Raspberry Pi 3B) and Monitoring Device (personal computer, Windows 10 Home, 64-bit operating system). The psql database and table names can vary depending on your preferences, just make sure the column names stay the same.
 
 Gathering Device (Raspberry Pi 3B) setup:
@@ -63,13 +63,6 @@ Setup PSQL with database and tables:
 &emsp;avg_length numeric,<br />
 &emsp;summ_size integer<br />
 );
-  - create table network_log(<br />
-&emsp;timestamp double precision unique not null,<br />
-&emsp;source text,<br />
-&emsp;destination text,<br />
-&emsp;protocol text,<br />
-&emsp;length integer<br />
-);
 
 In your Monitoring Device:
 
@@ -97,7 +90,7 @@ In your Monitoring Device:
 
 In both the Gathering and Monitoring Device, edit the pg_hba.conf file to allow "IPv4 local connections" between each devices.
 
-# Running
+## Running
 Gathering Device:
 
 * Run monitor.py then run worker_server.py
@@ -117,7 +110,33 @@ Monitoring Device:
 * After running monitor.py and worker_server.py on each Raspberry Pi. Run master_client.py.
 
 * To access help on the parameters needed to run master_client.py use:
-  - python3 master_client.py --help
+  - py -3 master_client.py --help
 
 * Run Example:
   - py -3 master_client.py -hosts 123.123.1.12 -port 1234 -user user -password password -host localhost -database network_stream -summ_table network_log_summary
+
+# Query Timer
+## Setup
+* Install postgresql-11
+
+* Install python3
+  - Install psycopg2
+
+* Setup PSQL with database and tables:
+  - create database network_stream
+  - create table network_log(<br />
+&emsp;timestamp double precision unique not null,<br />
+&emsp;src text,<br />
+&emsp;dst text,<br />
+&emsp;protocol text,<br />
+&emsp;len integer<br />
+);
+
+## Running
+* Run query_process.py
+
+* To access help on the parameters needed to run query_process.py:
+  - python3 query_process.py --help
+
+* Run Example:
+  - python3 query -timewindow 20 -join_range 1 -num_runs 5 -user user -password password -host localhost -database network_stream
