@@ -122,7 +122,7 @@ Monitoring Device:
 * Install python3
   - Install psycopg2
 
-* Setup PSQL with database and tables:
+* Setup PSQL with database and table:
   - create database network_stream
   - create table network_log(<br />
 &emsp;timestamp double precision unique not null,<br />
@@ -131,6 +131,8 @@ Monitoring Device:
 &emsp;protocol text,<br />
 &emsp;len integer<br />
 );
+
+* Fill network_log table with data
 
 ## Running
 * Run query_process.py
